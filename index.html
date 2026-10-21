@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spektrum — Jurnal Sains Populer</title>
+  <meta name="description" content="Versi sederhana dari jurnal sains populer Spektrum: artikel ilmiah populer berbahasa Indonesia, dibangun dengan HTML, CSS, dan JavaScript murni." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#/">
+        Spektrum <small>Jurnal Sains Populer</small>
+      </a>
+      <input id="search" type="search" placeholder="Cari artikel…" aria-label="Cari artikel" />
+    </div>
+  </header>
+
+  <main id="app" class="wrap" aria-live="polite">
+    <div class="empty">Memuat artikel…</div>
+  </main>
+
+  <noscript>
+    <div class="wrap"><p class="fact">Aktifkan JavaScript untuk membaca artikel di situs ini.</p></div>
+  </noscript>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-title">Spektrum</p>
+        <p class="footer-text">
+          Versi sederhana dari jurnal sains populer daring. Artikel ditulis dalam bahasa
+          yang hangat, dilengkapi daftar isi dan sumber bacaan, tanpa framework apa pun —
+          hanya HTML, CSS, dan JavaScript.
+        </p>
+      </div>
+      <div>
+        <p class="footer-title">Edisi Mingguan</p>
+        <p class="footer-text">Satu surel tiap Jumat: rangkuman artikel terbaru. Tanpa spam.</p>
+        <form id="sub-form" novalidate>
+          <input id="sub-email" type="email" placeholder="nama@email.com" aria-label="Alamat email" required />
+          <button type="submit" class="btn-sub">Daftar</button>
+        </form>
+        <p id="sub-msg" class="sub-msg" role="status"></p>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 Spektrum — Jurnal Sains Populer</span>
+      <span>Dibuat dengan HTML, CSS, dan JavaScript murni</span>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
