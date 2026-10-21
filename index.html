@@ -4,54 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spektrum — Jurnal Sains Populer</title>
-  <meta name="description" content="Versi sederhana dari jurnal sains populer Spektrum: artikel ilmiah populer berbahasa Indonesia, dibangun dengan HTML, CSS, dan JavaScript murni." />
+  <meta name="description" content="Artikel ilmiah populer berbahasa Indonesia, ditulis dengan bahasa ringan. Dibangun murni dengan HTML, CSS, dan JavaScript." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23a9c2b3'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23f6f4ef'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ===== HEADER (sama di semua halaman) ===== -->
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="logo" href="#/">
-        Spektrum <small>Jurnal Sains Populer</small>
-      </a>
-      <input id="search" type="search" placeholder="Cari artikel…" aria-label="Cari artikel" />
+      <a class="logo" href="index.html">Spektrum <small>Jurnal Sains Populer</small></a>
+      <a class="btn-header" href="mailto:bisma2024surabaya@gmail.com?subject=Request%20Artikel%20Sains%20Populer">Request Artikel</a>
     </div>
   </header>
 
-  <main id="app" class="wrap" aria-live="polite">
-    <div class="empty">Memuat artikel…</div>
+  <main class="wrap">
+
+    <!-- ===== SAPAAN PEMBUKA ===== -->
+    <section class="intro">
+      <h1>Sains yang bisa dinikmati,<br />bukan sekadar dipahami.</h1>
+      <p>Artikel ilmiah populer yang ditulis dengan bahasa ringan, jernih, dan menyenangkan — untuk siapa saja yang ingin memahami dunia.</p>
+    </section>
+
+    <!-- ===== DAFTAR PILIHAN ARTIKEL ===== -->
+    <section>
+      <div class="section-head">
+        <h2>Artikel</h2>
+        <span>pilih untuk membaca</span>
+      </div>
+
+      <!-- ==========================================================
+           CARA MENAMBAH PILIHAN BARU (artikel kedua, ketiga, dst.)
+           1. Salin file artikel.html, ganti namanya (artikel-2.html)
+           2. Salin satu blok kartu di bawah ini (dari <a class="card"
+              sampai </a> penutupnya)
+           3. Ubah href, nama kategori, judul, dan deskripsinya
+           ========================================================== -->
+      <a class="card" href="artikel.html">
+        <p class="card-cat">
+          <span class="dot dot-fisika"></span>Fisika
+          <span class="card-dot-meta">5 menit baca</span>
+        </p>
+        <h3 class="card-title">Judul Artikel Pertama</h3>
+        <p class="card-excerpt">Tulis deskripsi singkat artikelmu di sini — dua kalimat yang membuat pembaca penasaran untuk membaca lebih lanjut.</p>
+      </a>
+    </section>
+
+    <!-- ===== REQUEST ARTIKEL (mengarah ke email) ===== -->
+    <section class="request">
+      <h2>Punya topik yang ingin dibaca?</h2>
+      <p>Kirim usulan artikel ilmiah populer favoritmu lewat email — usulan yang menarik akan dibahas di artikel berikutnya.</p>
+      <a class="btn" href="mailto:bisma2024surabaya@gmail.com?subject=Request%20Artikel%20Sains%20Populer">Request Artikel</a>
+      <p class="request-mail">bisma2024surabaya@gmail.com</p>
+    </section>
+
   </main>
 
-  <noscript>
-    <div class="wrap"><p class="fact">Aktifkan JavaScript untuk membaca artikel di situs ini.</p></div>
-  </noscript>
-
+  <!-- ===== FOOTER (sama di semua halaman) ===== -->
   <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div>
-        <p class="footer-title">Spektrum</p>
-        <p class="footer-text">
-          Versi sederhana dari jurnal sains populer daring. Artikel ditulis dalam bahasa
-          yang hangat, dilengkapi daftar isi dan sumber bacaan, tanpa framework apa pun —
-          hanya HTML, CSS, dan JavaScript.
-        </p>
-      </div>
-      <div>
-        <p class="footer-title">Edisi Mingguan</p>
-        <p class="footer-text">Satu surel tiap Jumat: rangkuman artikel terbaru. Tanpa spam.</p>
-        <form id="sub-form" novalidate>
-          <input id="sub-email" type="email" placeholder="nama@email.com" aria-label="Alamat email" required />
-          <button type="submit" class="btn-sub">Daftar</button>
-        </form>
-        <p id="sub-msg" class="sub-msg" role="status"></p>
-      </div>
-    </div>
     <div class="wrap footer-bottom">
-      <span>© 2026 Spektrum — Jurnal Sains Populer</span>
-      <span>Dibuat dengan HTML, CSS, dan JavaScript murni</span>
+      <span>© <span data-year>2026</span> Spektrum — Jurnal Sains Populer</span>
+      <a href="mailto:bisma2024surabaya@gmail.com?subject=Request%20Artikel%20Sains%20Populer">Request Artikel →</a>
     </div>
   </footer>
 
-  <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
