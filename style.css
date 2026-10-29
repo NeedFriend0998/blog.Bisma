@@ -121,6 +121,14 @@ a:focus-visible {
   margin: 40px 0 18px;
 }
 
+.section-head h2 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--ink-strong);
+  margin: 0;
+}
+
 .section-head h1 {
   font-family: var(--font-head);
   font-weight: 600;
@@ -214,6 +222,14 @@ a:focus-visible {
   text-align: center;
 }
 
+.request h2 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--ink-strong);
+  margin: 0 0 8px;
+}
+
 .request h1 {
   font-family: var(--font-head);
   font-weight: 600;
@@ -289,6 +305,15 @@ a:focus-visible {
 .article-body { padding-bottom: 10px; }
 
 .article-body p { margin: 0 0 15px; }
+
+.article-body h2 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.45rem;
+  line-height: 1.3;
+  color: var(--ink-strong);
+  margin: 36px 0 12px;
+}
 
 .article-body h1 {
   font-family: var(--font-head);
