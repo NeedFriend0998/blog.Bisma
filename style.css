@@ -121,7 +121,7 @@ a:focus-visible {
   margin: 40px 0 18px;
 }
 
-.section-head h2 {
+.section-head h1 {
   font-family: var(--font-head);
   font-weight: 600;
   font-size: 1.35rem;
@@ -214,7 +214,7 @@ a:focus-visible {
   text-align: center;
 }
 
-.request h2 {
+.request h1 {
   font-family: var(--font-head);
   font-weight: 600;
   font-size: 1.3rem;
@@ -290,7 +290,7 @@ a:focus-visible {
 
 .article-body p { margin: 0 0 15px; }
 
-.article-body h2 {
+.article-body h1 {
   font-family: var(--font-head);
   font-weight: 600;
   font-size: 1.45rem;
