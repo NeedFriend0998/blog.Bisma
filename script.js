@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+
 // === TOMBOL SHARE ===
 const btnShare = document.getElementById('btn-share');
 if (btnShare) {
@@ -32,27 +33,26 @@ if (btnShare) {
     });
 }
 
-// === LOGIKA POP-UP IKLAN ===
+// === LOGIKA IKLAN SLIDE-UP ===
 document.addEventListener("DOMContentLoaded", () => {
-    const adModal = document.getElementById('ad-modal');
+    const adBanner = document.getElementById('ad-banner');
     const closeAdBtn = document.getElementById('close-ad');
 
-    // Cek apakah user sudah pernah lihat iklan ini
+    // Cek apakah user sudah pernah close iklan ini
     const hasSeenAd = localStorage.getItem('spektrum_ad_seen');
 
-    // Kalau belum pernah lihat (atau habis hapus data browser), tampilkan
-    if (!hasSeenAd && adModal) {
-        // Kasih delay 1 detik biar webnya ke-load dulu, baru iklan muncul
+    // Kalau belum pernah, munculkan setelah 1,5 detik
+    if (!hasSeenAd && adBanner) {
         setTimeout(() => {
-            adModal.style.display = 'flex';
-        }, 1000); 
+            adBanner.classList.add('show'); // Memicu animasi slide-up
+        }, 1500); 
     }
 
-    // Tombol Close
+    // Tombol Close (X)
     if (closeAdBtn) {
         closeAdBtn.addEventListener('click', () => {
-            adModal.style.display = 'none';
-            // Simpan status di browser user kalau dia udah lihat
+            adBanner.classList.remove('show'); // Memicu animasi slide-down
+            // Simpan memori di browser user
             localStorage.setItem('spektrum_ad_seen', 'true');
         });
     }
