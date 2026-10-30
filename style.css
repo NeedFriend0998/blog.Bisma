@@ -540,97 +540,91 @@ a:focus-visible {
 }
 
 
-/* === STYLE SLIDE-UP BANNER === */
+/* === AREA ABU-ABU (BACKDROP) === */
+.ad-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* Warna abu-abu transparan */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 9998;
+}
+.ad-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* === BANNER IKLAN === */
 .ad-banner {
   position: fixed;
-  bottom: -100%; /* Posisi awal disembunyikan di bawah layar */
+  bottom: 0;
   left: 0;
   width: 100%;
   background: #ffffff;
-  box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
-  padding: 15px 20px;
+  border-radius: 20px 20px 0 0; /* Sudut membulat di atas */
+  box-shadow: 0 -5px 25px rgba(0,0,0,0.2);
   z-index: 9999;
   box-sizing: border-box;
   font-family: system-ui, -apple-system, sans-serif;
-  transition: bottom 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Animasi meluncur */
+  
+  /* Animasi Slide */
+  transform: translateY(100%); 
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s ease;
 }
 
-/* Class ini ditambahkan lewat JS untuk memunculkan banner */
+/* Saat muncul */
 .ad-banner.show {
-  bottom: 0;
+  transform: translateY(0);
 }
 
+/* Saat di-expand (Fullscreen) */
+.ad-banner.fullscreen {
+  height: 75vh; /* Ukuran saat di geser ke atas */
+  overflow-y: auto;
+}
+
+/* Garis Handle di atas */
+.ad-drag-handle {
+  width: 100%;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  cursor: grab;
+  touch-action: none; /* Biar gak bentrok sama scroll browser */
+}
+.ad-drag-handle:active { cursor: grabbing; }
+.drag-bar {
+  width: 40px;
+  height: 5px;
+  background: #d1d5db;
+  border-radius: 5px;
+}
+
+/* Konten Iklan */
 .ad-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 20px 20px 20px;
   gap: 20px;
-  flex-wrap: wrap; /* Biar responsif di HP */
+  flex-wrap: wrap;
 }
-
-.ad-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex: 1;
-  min-width: 250px;
-}
-
+.ad-info { display: flex; align-items: center; gap: 15px; flex: 1; min-width: 250px; }
 .ad-icon { font-size: 32px; }
-
-.ad-text strong {
-  display: block;
-  color: #1f2937;
-  font-size: 1.1rem;
-  margin-bottom: 2px;
-}
-
-.ad-text p {
-  margin: 0;
-  color: #4b5563;
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
-.ad-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.btn-buy, .btn-github {
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.85rem;
-  transition: 0.2s;
-  white-space: nowrap;
-}
-
+.ad-text strong { display: block; color: #1f2937; font-size: 1.1rem; margin-bottom: 2px; }
+.ad-text p { margin: 0; color: #4b5563; font-size: 0.85rem; line-height: 1.4; }
+.ad-actions { display: flex; align-items: center; gap: 10px; }
+.btn-buy, .btn-github { padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: 0.2s; white-space: nowrap; }
 .btn-buy { background: #10b981; color: white; }
 .btn-buy:hover { background: #059669; }
-
 .btn-github { background: #1f2937; color: white; }
 .btn-github:hover { background: #111827; }
 
-.btn-close {
-  background: transparent;
-  border: none;
-  font-size: 24px;
-  color: #9ca3af;
-  cursor: pointer;
-  padding: 0 5px;
-  margin-left: 10px;
-  transition: color 0.2s;
-}
-.btn-close:hover { color: #ef4444; }
-
-/* Responsif untuk layar HP */
+/* Responsif Mobile */
 @media (max-width: 600px) {
   .ad-content { flex-direction: column; align-items: flex-start; }
   .ad-actions { width: 100%; justify-content: space-between; margin-top: 10px; }
-  .btn-close { position: absolute; top: 10px; right: 10px; }
 }
