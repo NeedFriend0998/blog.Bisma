@@ -30,39 +30,49 @@ document.getElementById('btn-share').addEventListener('click', async () => {
     }
 });
 
-
-
-
-// === TOMBOL LIKE ===
-const likeBtn = document.getElementById('btn-like');
-const likeCount = document.getElementById('like-count');
-
-// Fungsi ngambil jumlah like awal pas halaman dibuka
-async function fetchLikes() {
-    try {
-        // Ganti URL ini sesuai backend lo
-        const res = await fetch('http://fi2.elysiannodes.uk:2502/api/likes'); 
-        const data = await res.json();
-        likeCount.textContent = data.count;
-    } catch (e) {
-        console.log("Gagal ambil data like", e);
-    }
+// === TOMBOL SHARE ===
+const btnShare = document.getElementById('btn-share');
+if (btnShare) {
+    btnShare.addEventListener('click', async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: document.title,
+                    text: 'Baca artikel keren ini di Spektrum!',
+                    url: window.location.href
+                });
+            } catch (err) {
+                console.log('Share dibatalkan');
+            }
+        } else {
+            navigator.clipboard.writeText(window.location.href);
+            alert('Link artikel berhasil di-copy!');
+        }
+    });
 }
-fetchLikes();
 
-// Pas tombol diklik
-likeBtn.addEventListener('click', async () => {
-    // Ubah angka di layar dulu biar cepet responnya
-    let current = parseInt(likeCount.textContent);
-    likeCount.textContent = current + 1;
+// === LOGIKA POP-UP IKLAN ===
+document.addEventListener("DOMContentLoaded", () => {
+    const adModal = document.getElementById('ad-modal');
+    const closeAdBtn = document.getElementById('close-ad');
 
-    try {
-        // Tembak backend buat simpan
-        const res = await fetch('http://localhost:3000/api/likes', { method: 'POST' });
-        const data = await res.json();
-        likeCount.textContent = data.count; // Update pakai angka valid dari server
-    } catch (e) {
-        console.log("Gagal like", e);
-        likeCount.textContent = current; // Balikin angka kalau gagal
+    // Cek apakah user sudah pernah lihat iklan ini
+    const hasSeenAd = localStorage.getItem('spektrum_ad_seen');
+
+    // Kalau belum pernah lihat (atau habis hapus data browser), tampilkan
+    if (!hasSeenAd && adModal) {
+        // Kasih delay 1 detik biar webnya ke-load dulu, baru iklan muncul
+        setTimeout(() => {
+            adModal.style.display = 'flex';
+        }, 1000); 
+    }
+
+    // Tombol Close
+    if (closeAdBtn) {
+        closeAdBtn.addEventListener('click', () => {
+            adModal.style.display = 'none';
+            // Simpan status di browser user kalau dia udah lihat
+            localStorage.setItem('spektrum_ad_seen', 'true');
+        });
     }
 });
