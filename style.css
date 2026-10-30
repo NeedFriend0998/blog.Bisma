@@ -538,3 +538,60 @@ a:focus-visible {
   .views { margin-left: 0; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
+
+/* === STYLE POP-UP IKLAN === */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Background gelap transparan */
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-box {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px; right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #888;
+}
+
+.modal-close:hover { color: #333; }
+
+.ad-icon { font-size: 48px; margin-bottom: 10px; }
+.ad-content h2 { margin: 0 0 10px 0; color: #1f2937; font-size: 1.5rem; }
+.ad-content p { color: #4b5563; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; }
+
+.ad-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+.btn-buy, .btn-github {
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.btn-buy { background: #10b981; color: white; } /* Warna hijau */
+.btn-buy:hover { background: #059669; }
+
+.btn-github { background: #1f2937; color: white; } /* Warna hitam */
+.btn-github:hover { background: #111827; }
