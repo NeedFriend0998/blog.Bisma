@@ -12,25 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // === TOMBOL SHARE ===
-document.getElementById('btn-share').addEventListener('click', async () => {
-    if (navigator.share) {
-        try {
-            await navigator.share({
-                title: document.title,
-                text: 'Baca artikel keren ini!',
-                url: window.location.href
-            });
-        } catch (err) {
-            console.log('Share dibatalkan', err);
-        }
-    } else {
-        // Kalau browser gak support (misal Firefox PC), copy link aja
-        navigator.clipboard.writeText(window.location.href);
-        alert('Link artikel berhasil di-copy!');
-    }
-});
-
-// === TOMBOL SHARE ===
 const btnShare = document.getElementById('btn-share');
 if (btnShare) {
     btnShare.addEventListener('click', async () => {
